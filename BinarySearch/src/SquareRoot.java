@@ -8,13 +8,11 @@ public class SquareRoot {
             int n = sc.nextInt();
             System.out.println(sqrt(n));
         }
-
     }
 
     public static int sqrt(int n) {
 
         int start = 0, end = n, mid;
-
 
         int temp = 0;
 
@@ -23,9 +21,10 @@ public class SquareRoot {
 
             if (mid * mid == n) {
                 temp = mid;
-                break;
-            }
 
+                break;
+
+            }
 
             if (mid * mid < n) {
                 start = mid + 1;
