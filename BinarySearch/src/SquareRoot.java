@@ -17,19 +17,17 @@ public class SquareRoot {
         int temp = 0;
 
         while (start <= end) {
-            mid = (start + end) / 2;
+            mid = start + (end - start) / 2;
 
             if (mid * mid == n) {
                 temp = mid;
-
                 break;
-
             }
 
             if (mid * mid < n) {
                 start = mid + 1;
                 temp = mid;
-            }else {
+            } else {
                 end = mid - 1;
             }
         }
