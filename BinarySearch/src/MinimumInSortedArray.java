@@ -7,6 +7,7 @@ public class MinimumInSortedArray {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
 
+
         System.out.println(findIndex(arr, n));
 
     }
@@ -19,21 +20,22 @@ public class MinimumInSortedArray {
         while (start <= end) {
             int mid = start + (end - start) / 2;
 
-
             if (arr[mid] > arr[start]) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
             }
-
-            if (arr[mid] > arr[mid + 1]) {
-                return arr[mid + 1];
+            if (mid < n - 2) {
+                if (arr[mid] > arr[mid + 1]) {
+                    return arr[mid + 1];
+                }
             }
-            if (arr[mid - 1] > arr[mid]) {
-                return arr[mid];
+            if (mid > 0) {
+                if (arr[mid - 1] > arr[mid]) {
+                    return arr[mid];
+                }
             }
-
         }
-        return 0;
+        return arr[start];
     }
 }
