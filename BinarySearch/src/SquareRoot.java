@@ -10,11 +10,11 @@ public class SquareRoot {
         }
     }
 
-    public static int sqrt(int n) {
+    public static long sqrt(int n) {
 
-        int start = 0, end = n, mid;
+        long start = 0, end = n, mid;
 
-        int temp = 0;
+        long temp = 0;
 
         while (start <= end) {
             mid = start + (end - start) / 2;

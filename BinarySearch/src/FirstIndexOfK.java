@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class FirstIndexOfK {
@@ -21,11 +20,11 @@ public class FirstIndexOfK {
 
         int ans = -1;
         while (start <= end) {
-            mid = (start + end) / 2;
+            mid = start + (end - start) / 2 ;
             if (arr[mid] == k) {
                 ans = mid;
                 end = mid - 1;
-            } else if (mid < k) {
+            } else if (arr[mid] < k) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
