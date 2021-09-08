@@ -2,7 +2,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class SearchNumber {
-    private static int count = 0;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -13,34 +12,62 @@ public class SearchNumber {
         while (m-- != 0) {
             int q = sc.nextInt();
             int target = sc.nextInt();
-            findN(arr, 0, target);
-            if (count == 0) {
-                System.out.println(0);
-            } else if (q == 0) {
-                System.out.println(n - findN(arr, 0, target));
-            } else if (q == 1) {
-                System.out.println(n - findN(arr, 0, target) - 1);
-            }
+            findN(arr, 0, target, q);
         }
     }
 
-    public static int findN(int[] array, int low, int k) {
-
+    public static void findN(int[] array, int low, int k, int q) {
+        boolean flag = false;
         Arrays.sort(array);
-        int mid, ans = 0;
-        int high = array.length - 1;
-        while (low <= high) {
-            mid = low + (high - low) / 2;
-            if (array[mid] == k) {
-                ans = mid;
-                high = mid - 1;
-            } else if (array[mid] > k) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
+       int ans = 0;
+
+            int mid;
+            int high = array.length - 1;
+            while (low <= high) {
+
+                mid = low + (high - low) / 2;
+                if (array[mid] >k) {
+                    ans = mid;
+                    high = mid - 1;
+                    flag = true;
+
+                }
+                if (array[mid] == k) {
+                    ans = mid;
+                    high = mid - 1;
+                    flag = true;
+                } else if (array[mid] > k) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
             }
+
+       /* if (q == 1) {
+            int mid;
+            int high = array.length - 1;
+
+            while (low <= high) {
+                mid = low + (high - low) / 2;
+
+               else {
+                    low = mid + 1;
+                }
+            }
+        }*/
+        // System.out.println(array.length - ans + 1);
+        if (flag) {
+            if (q == 0) {
+                System.out.println(array.length - ans );
+            }
+            if (q == 1) {
+                System.out.println(array.length - ans -1);
+            }
+
+        } else {
+            System.out.println(0);
         }
-        return ans;
+
     }
 }
 

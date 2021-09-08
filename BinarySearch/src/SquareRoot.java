@@ -6,11 +6,11 @@ public class SquareRoot {
         int t = sc.nextInt();
         while (t-- != 0) {
             int n = sc.nextInt();
-            System.out.println(sqrt(n));
+            System.out.println(squareRoot(n));
         }
     }
 
-    public static long sqrt(int n) {
+    public static long squareRoot(int n) {
 
         long start = 0, end = n, mid;
 
