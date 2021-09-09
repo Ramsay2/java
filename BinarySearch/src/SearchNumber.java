@@ -20,18 +20,13 @@ public class SearchNumber {
         boolean flag = false;
         Arrays.sort(array);
        int ans = 0;
-
+        if (q == 0) {
             int mid;
             int high = array.length - 1;
             while (low <= high) {
 
                 mid = low + (high - low) / 2;
-                if (array[mid] >k) {
-                    ans = mid;
-                    high = mid - 1;
-                    flag = true;
 
-                }
                 if (array[mid] == k) {
                     ans = mid;
                     high = mid - 1;
@@ -42,19 +37,24 @@ public class SearchNumber {
                     low = mid + 1;
                 }
             }
-
-       /* if (q == 1) {
+        }
+        if (q == 1) {
             int mid;
             int high = array.length - 1;
 
             while (low <= high) {
                 mid = low + (high - low) / 2;
 
-               else {
+                if (array[mid] >=k) {
+                    ans = mid;
+                    high = mid - 1;
+                    flag = true;
+
+                } else {
                     low = mid + 1;
                 }
             }
-        }*/
+        }
         // System.out.println(array.length - ans + 1);
         if (flag) {
             if (q == 0) {
