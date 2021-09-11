@@ -20,23 +20,23 @@ class Node {
 
 class Solution {
     public static Node insertAtTail(Node a, int val, int pos) {
-        Node temp = new Node(val);
-        Node k = a;
+        Node temp, k = a;
+        ;
+        int count = 0;
         if (pos == 0) {
             temp = k.next;
             return temp;
+
         } else {
-            while (pos-- != -1) {
+            while (k != null && count < pos) {
 
-                if (pos == 0) {
-                    temp.next = k.next;
-                    k.next = temp;
-                    break;
-                }
-
-                k = k.next;
+                    k = k.next;
+                count++;
             }
         }
+        assert false;
+        temp = k.next.next;
+        k.next = temp;
         return a;
     }
 }
