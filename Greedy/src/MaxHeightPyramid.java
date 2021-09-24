@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class MaxHeightPyramid {
@@ -16,7 +15,6 @@ public class MaxHeightPyramid {
             }else{
                 break;
             }
-
         }
         System.out.println(ans);
 

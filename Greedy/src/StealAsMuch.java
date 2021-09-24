@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class StealAsMuch {
     public static void main(String[] args) {
@@ -10,38 +9,36 @@ public class StealAsMuch {
         int[] weight = new int[n];
         for (int i = 0; i < n; i++) {
             value[i] = sc.nextInt();
-
         }
         for (int i = 0; i < n; i++) {
             weight[i] = sc.nextInt();
 
         }
-        Arrays.sort(value);
-        Arrays.sort(weight);
+
         int ans = 0;
-        int[] arr = new int[n];
-        int[] arrValue = new int[n];
-        int[] arrWeight = new int[n];
+        float[] arr = new float[n];
+        Map<Float, int[]> map = new TreeMap<>(Collections.reverseOrder());
+
         for (int i = 0; i < n; i++) {
-            arr[i] = value[i] / weight[i];
-            arrWeight[i] = weight[i];
-            arrValue[i] = value[i];
+            arr[i] = ((float) value[i] / (float) weight[i]);
+            map.put(arr[i], new int[]{value[i], weight[i]});
 
         }
-        Arrays.sort(arr);
 
 
-        for (int i = n - 1; i > 0; i--) {
-            if (w > 0 && weight[i] <= w) {
-                w = w - weight[i];
-                ans += value[i];
+        for (Map.Entry<Float, int[]> itr : map.entrySet()) {
+
+            if (w > 0 && itr.getValue()[1] <= w) {
+                w = w - itr.getValue()[1];
+                ans += itr.getValue()[0];
             } else {
+                ans += itr.getKey() * (w);
                 break;
             }
-            if (w > 0) {
-                ans += arr[i] * (w / weight[i]);
-            }
+
+
         }
+
 
 
         System.out.println(ans);

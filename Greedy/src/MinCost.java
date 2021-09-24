@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class MinCost {
@@ -9,24 +11,30 @@ public class MinCost {
             int n = sc.nextInt();
             int k = sc.nextInt();
             int[] arr = new int[n];
+            ArrayList<Integer> list1 = new ArrayList<>();
+
             for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
 
-            Arrays.sort(arr);
-            int[] arr2 = new int[n - 1];
-            for (int i = 0; i < n - 1; i++) {
-                arr2[i] = Math.abs(arr[i] - arr[i + 1]);
-            }
-            Arrays.sort(arr2);
-            int count = 0;
-            for (int i = 0; i < n - 1; i++) {
-                if (arr2[i] != 0) {
-                    count += k * 3;
-                }else if(arr2[i] == 0){
-                    count+=2;
-                    break;
+            for (int i = 0; i < n; i++) {
+                for (int j = i; j < n; j++) {
+                    if (arr[i] > arr[j] && i != j) {
+                        list1.add((arr[i] - arr[j]) * 3);
+                    } else if(i != j){
+                        list1.add((arr[j] - arr[i]) * 5);
+                    }
+
                 }
             }
-            System.out.println(count);
+
+            Collections.sort(list1);
+
+
+            int ans = 0;
+            for (int i = 0; i < k; i++) {
+                ans += list1.get(i);
+            }
+
+            System.out.println(ans);
         }
     }
 }
