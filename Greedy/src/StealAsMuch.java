@@ -12,36 +12,50 @@ public class StealAsMuch {
         }
         for (int i = 0; i < n; i++) {
             weight[i] = sc.nextInt();
-
+        }
+        ;
+        TreeMap<Integer, int[]> map = new TreeMap<>(Collections.reverseOrder());
+        for (int i = 0; i < n; i++) {
+            map.put(value[i] / weight[i], new int[]{value[i], weight[i]});
+        }
+        int max = 0;
+        for (Map.Entry<Integer, int[]> itr : map.entrySet()) {
+            System.out.println(itr.getKey() + " " + itr.getValue()[0] + " " + itr.getValue()[1]);
+         /*   if(w >= itr.getValue()[1]){
+                max += itr.getValue()[0];
+                w-= itr.getValue()[1];
+            }else {
+                max = (int) (max + itr.getValue()[0] *((float)w / itr.getValue()[1]));
+                break;
+            }*/
+        }
+        System.out.println(max);
+       /* for (int i = 0; i < n; i++) {
+            for (int j = i; j <= n - i - 2; j++) {
+                if (value[j] / weight[i] < value[j + 1] / weight[j + 1]) {
+                    swap(value[j], value[j + 1]);
+                    swap(weight[j], weight[j + 1]);
+                }
+            }
         }
 
-        int ans = 0;
-        float[] arr = new float[n];
-        Map<Float, int[]> map = new TreeMap<>(Collections.reverseOrder());
 
         for (int i = 0; i < n; i++) {
-            arr[i] = ((float) value[i] / (float) weight[i]);
-            map.put(arr[i], new int[]{value[i], weight[i]});
-
-        }
-
-
-        for (Map.Entry<Float, int[]> itr : map.entrySet()) {
-
-            if (w > 0 && itr.getValue()[1] <= w) {
-                w = w - itr.getValue()[1];
-                ans += itr.getValue()[0];
+            if (weight[i] <= w) {
+                max += value[i];
+                w -= weight[i];
             } else {
-                ans += itr.getKey() * (w);
+                max = (int) (max + value[i] * ((float) w / weight[i]));
                 break;
             }
+        }*/
 
-
-        }
-
-
-
-        System.out.println(ans);
     }
 
+    public static void swap(int x, int y) {
+        int k = x;
+        x = y;
+        y = k;
+
+    }
 }

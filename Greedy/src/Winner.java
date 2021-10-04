@@ -15,9 +15,10 @@ public class Winner {
                 return;
             }
 
-            int ans = 0;
-            for (int i : arr) {
-                ans ^= i;
+            List<Integer> s1, s2;
+            int ans = n + 1, pc = 1000000;
+            for (int i = 0; i < n; i++) {
+
             }
             System.out.println(ans);
             for (int i = 0; i < n; i++) {

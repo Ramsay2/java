@@ -14,14 +14,11 @@ public class passenger {
             Arrays.sort(arr);
             int i, j;
             for (i = 0, j = n - 1; i < j; ) {
+                ans++;
                 if (arr[i] + arr[j] <= k) {
-                    ans++;
                     i++;
-                    j--;
-                } else {
-                    ans++;
-                    j--;
                 }
+                j--;
             }
             if (i == j) {
                 ans += 1;
