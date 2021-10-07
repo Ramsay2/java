@@ -11,8 +11,6 @@ public class SelectTrainee {
             for(int i = 0 ; i < 2*n; i++) arr[i] = sc.nextInt();
             Arrays.sort(arr);
             System.out.println(arr[n] - arr[n - 1]);
-
-
         }
     }
 }

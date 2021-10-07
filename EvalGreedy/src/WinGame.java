@@ -13,7 +13,7 @@ public class WinGame {
 
         Arrays.sort(arr);
         Arrays.sort(arr2);
-        int ans = 0;
+        long ans = 0;
         for (int i = 0; i < n; i++) {
             if (arr[i] <= arr2[m - 1]) {
                ans += arr2[m - 1] - arr[i] + 1;
