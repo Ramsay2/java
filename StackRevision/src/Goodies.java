@@ -28,8 +28,6 @@ public class Goodies {
             }
         }
         System.out.println(ans);
-
-
     }
 
     private static boolean isValid(long[] arr, long m, long h, long mid) {
