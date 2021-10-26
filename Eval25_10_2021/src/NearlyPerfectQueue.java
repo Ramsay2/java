@@ -25,12 +25,12 @@ public class NearlyPerfectQueue {
                 flag = true;
                 break;
             }
-            if(arr[mid + 1] == m && mid < end){
+            if( mid < end &&  arr[mid + 1] == m)  {
                 System.out.println(mid + 1);
                 flag = true;
                 break;
             }
-            if(arr[mid - 1] == m && mid > start){
+            if(mid > start &&  arr[mid - 1] == m ){
                 System.out.println(mid - 1);
                 flag = true;
                 break;
