@@ -1,3 +1,5 @@
+package PracticeBinary;
+
 import java.util.*;
 
 public class AngryEmployees {
