@@ -16,8 +16,6 @@ public class OptimiseTheCurve{
 
         if(d < c) return -1;
         long start = 0, end = d, ans = -1 ;
-
-
         while (start <= end){
             long  mid = start + (end - start)/2;
             long  sum = a*mid*mid + b*mid + c;
