@@ -8,22 +8,27 @@ public class RepeatedAndMissing {
             int n = sc.nextInt();
             int[] arr = new int[n];
             for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
-            System.out.println(missing(arr,n));
+            missing(arr, n);
+            System.out.println();
         }
     }
-    static String missing(int[] arr, int n){
-       String ans = "-1";
-        for(int i = 0;i <n/2;i++){
 
-            if(arr[i] == arr[i+ 1] ){
-                ans = n +" " + arr[i];
-                break;
-            }
-            if( arr[n - 1 - i] == arr[n-2-i]){
-                ans = n +" " + arr[n - 1 - i];
-                break;
-            }
+    static String missing(int[] arr, int n) {
+        int a, b = -1;
+        String ans = "-1";
+        int sqrSum = 0, sum = 0;
+        for (int i = 0; i < n; i++) {
+            sqrSum += arr[i] * arr[i];
+            sum += arr[i];
         }
+        int s = sum ;
+        System.out.println(sqrSum);
+        System.out.println(sum +" " + n * (n + 1) / 2 );
+        int sq = (sqrSum - n * (n + 1) * (2 * n + 1) / 6) / s;
+        System.out.println(n * (n + 1) * (2 * n + 1) / 6);
+        a = (s + sq) / 2;
+       // System.out.println(a);
+
         return ans;
     }
 }
