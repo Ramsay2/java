@@ -16,10 +16,9 @@ public class Gifts {
     static int gifts(int[] arr, int n) {
 
         HashMap<Integer, Integer> map = new HashMap<>();
-        int ans = 0;
-        for (int i = 0, j = 0; i < n; i++) {
+        int ans = 0, j = 0;
+        for (int i = 0; i < n; i++) {
 
-            j = Math.max(map.containsKey(arr[i]) ? map.get(arr[i]) : 0, j);
             if (map.containsKey(arr[i])) {
             j = Math.max(map.get(arr[i]),  j);
             }
