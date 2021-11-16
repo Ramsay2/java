@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class RepeatedAndMissing {
     public static void main(String[] args) {
@@ -9,26 +9,26 @@ public class RepeatedAndMissing {
             int[] arr = new int[n];
             for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
             missing(arr, n);
-            System.out.println();
         }
     }
 
-    static String missing(int[] arr, int n) {
-        int a, b = -1;
-        String ans = "-1";
-        int sqrSum = 0, sum = 0;
-        for (int i = 0; i < n; i++) {
-            sqrSum += arr[i] * arr[i];
-            sum += arr[i];
-        }
-        int s = sum ;
-        System.out.println(sqrSum);
-        System.out.println(sum +" " + n * (n + 1) / 2 );
-        int sq = (sqrSum - n * (n + 1) * (2 * n + 1) / 6) / s;
-        System.out.println(n * (n + 1) * (2 * n + 1) / 6);
-        a = (s + sq) / 2;
-       // System.out.println(a);
+    static void missing(int[] arr, int n) {
 
-        return ans;
+        String ans = "-1";
+        LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>();
+        for (int i = 0; i < n; i++) {
+            if (map.containsKey(arr[i])) {
+                ans = arr[i] + "";
+            } else {
+                map.put(arr[i], 1);
+            }
+        }
+        for (int i = 1; i <= n; i++) {
+            if (!map.containsKey(i)) {
+                System.out.println(i + " " + ans);
+                break;
+            }
+        }
+
     }
 }
