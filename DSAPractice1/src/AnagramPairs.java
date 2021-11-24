@@ -51,25 +51,33 @@ public class AnagramPairs {
 
     public static void main(String[] args) {
         FastReader sc = new FastReader();
-      //  Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while (t-- != 0){
             int n = sc.nextInt();
-            String[] strArr = new String[n];
             int count = 0;
-            for(int i = 0; i < n; i++) strArr[i] = sc.next();
-            HashSet<String> set = new HashSet<>();
-          for(int i = 0; i < n; i++) {
-              char[] arr = strArr[i].toCharArray();
-              Arrays.sort(arr);
-              if(set.contains(Arrays.toString(arr))){
-                  count++;
-              }else
-              set.add(Arrays.toString(arr));
+               // System.out.println(temp);
+                HashMap<String, Integer> map = new HashMap<>();
+                for (int i = 0; i < n; i++) {
+                    String str = sc.next();
+                    char[] arr = str.toCharArray();
+                    Arrays.sort(arr);
+                    String temp = String.valueOf(arr);
 
-          }
+                    if (map.containsKey(temp)) {
+                        map.put(temp, map.get(temp) + 1);
+                    } else {
+                        map.put(temp, 1);
+                    }
+                }
 
-            System.out.println(count);
+                for (Map.Entry<String, Integer> itr : map.entrySet()) {
+                    if (itr.getValue() > 1) {
+                        count += (itr.getValue() * (itr.getValue() - 1) / 2);
+                    }
+                }
+
+
+            System.out.println((count));
         }
     }
 
