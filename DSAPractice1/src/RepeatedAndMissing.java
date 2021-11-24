@@ -15,17 +15,22 @@ public class RepeatedAndMissing {
     static void missing(int[] arr, int n) {
 
         String ans = "-1";
-        LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>();
-        for (int i = 0; i < n; i++) {
-            if (map.containsKey(arr[i])) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i <= n / 2; i++) {
+            if (set.contains(arr[i])) {
                 ans = arr[i] + "";
-            } else {
-                map.put(arr[i], 1);
             }
+                set.add(arr[i]);
+                set.add(n - 1 - i);
+
         }
-        for (int i = 1; i <= n; i++) {
-            if (!map.containsKey(i)) {
+        for (int i = 1; i <= n / 2; i++) {
+
+            if (!set.contains(i) ) {
                 System.out.println(i + " " + ans);
+                break;
+            }if(!set.contains(n + 1 - i)){
+                System.out.println((n + 1 - i) + " " + ans);
                 break;
             }
         }
