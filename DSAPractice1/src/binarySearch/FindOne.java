@@ -1,7 +1,6 @@
 package binarySearch;
 
 import java.util.Scanner;
-
 public class FindOne {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
