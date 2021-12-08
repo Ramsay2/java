@@ -17,6 +17,7 @@ public class UseSideLane {
         if (k != 0) {
             Stack<Integer> stack = new Stack<>();
             ArrayList<Integer> list = new ArrayList<>();
+
             for (int i = 0; i < n; i++) {
                 if (i + 1 < n && arr[i] > arr[i + 1]) {
                     stack.push(arr[i]);
@@ -24,7 +25,9 @@ public class UseSideLane {
                     list.add(arr[i]);
                 }
             }
+
             boolean flag = true;
+            int[] ans = new int[n];
             for (int i = 0; i < list.size(); i++) {
                 if (i + 1 != list.get(i)) {
                     flag = false;
