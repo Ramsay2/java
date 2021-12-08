@@ -12,9 +12,9 @@ public class NikhilAndSearch {
         }
         int k = sc.nextInt();
         while (k-- > 0) {
-            int x = sc.nextInt();
-            int y = sc.nextInt();
-            System.out.println(numbersInRange(arr, x, y));
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            System.out.println(numbersInRange(arr, a, b));
         }
     }
 
