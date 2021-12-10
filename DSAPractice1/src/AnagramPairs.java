@@ -55,7 +55,7 @@ public class AnagramPairs {
         while (t-- != 0){
             int n = sc.nextInt();
             int count = 0;
-               // System.out.println(temp);
+
                 HashMap<String, Integer> map = new HashMap<>();
                 for (int i = 0; i < n; i++) {
                     String str = sc.next();
