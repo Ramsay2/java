@@ -26,7 +26,6 @@ public class Gifts {
 
             map.put(arr[i], i + 1);
         }
-
         return ans;
     }
 }
