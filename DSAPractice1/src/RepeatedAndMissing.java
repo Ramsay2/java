@@ -13,7 +13,7 @@ public class RepeatedAndMissing {
     }
 
     static void missing(int[] arr, int n) {
-
+Arrays.sort(arr);
         String ans = "-1";
         HashSet<Integer> set = new HashSet<>();
         for (int i = 0; i <= n / 2; i++) {
