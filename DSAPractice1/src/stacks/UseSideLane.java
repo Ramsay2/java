@@ -13,10 +13,11 @@ public class UseSideLane {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
+        ArrayList<Integer> list = new ArrayList<>();
         int k = sc.nextInt();
         if (k != 0) {
             Stack<Integer> stack = new Stack<>();
-            ArrayList<Integer> list = new ArrayList<>();
+         
 
             for (int i = 0; i < n; i++) {
                 if (i + 1 < n && arr[i] > arr[i + 1]) {
