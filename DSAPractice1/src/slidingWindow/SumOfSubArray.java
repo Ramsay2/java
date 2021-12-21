@@ -3,6 +3,8 @@ package slidingWindow;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class SumOfSubArray {
@@ -56,26 +58,32 @@ public class SumOfSubArray {
         int t = fr.nextInt();
         while (t-- != 0) {
             int n = fr.nextInt();
-            int k = fr.nextInt();
-            int[] arr = new int[n];
+            long k = fr.nextLong();
+            long[] arr = new long[n];
             for (int i = 0; i < n; i++) {
-                arr[i] = fr.nextInt();
+                arr[i] = fr.nextLong();
             }
-            System.out.println(sumOfSubArray(arr, k));
+            if (sumOfSubArray(arr, k)) {
+                System.out.println("Yes");
+            }
+            else {
+                System.out.println("N0");
+            }
+
         }
     }
 
-    private static boolean sumOfSubArray(int[] arr, int k) {
+    private static boolean sumOfSubArray(long[] arr, long k) {
 
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
-            if (sum == k || arr[i] == k) {
-                return true;
+        Map<Long, Long> map = new HashMap<>();
+        map.put((long)0,(long)1);
+        long sum = 0;
+        for(long x : arr){
+            sum += x;
+            if(map.containsKey(sum - k)){
+               return true;
             }
-            if (i >= k - 1) {
-                sum -= arr[i - k + 1];
-            }
+            map.put(sum, map.getOrDefault(sum,(long)0) + 1);
         }
         return false;
     }
