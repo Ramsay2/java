@@ -11,6 +11,7 @@ public class AAndBOnly {
             sb.setCharAt(0, 'b');
         }else if(sb.charAt(0) == '?' ) {
             sb.setCharAt(0, 'a');
+            System.out.println("13" + 3 + 4);
         }
 
         for (int i = 0; i < sb.length(); i++) {
